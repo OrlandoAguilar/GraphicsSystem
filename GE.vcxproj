@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4D8A07B1-4047-4376-8E6C-E7C8AFCE5AB1}</ProjectGuid>
+    <RootNamespace>GE</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;Utility;WindowSystem;.;GraphicsSystem;glfw/include;lodepng;InputSystem;assimp/include/assimp;SOIL/include;Math;Project1Code;Project2Code;</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);glfw/lib;$(NETFXKitsDir)Lib\um\x86;SOIL/lib/Debug;</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;Utility;WindowSystem;.;GraphicsSystem;glfw/include;lodepng;InputSystem;assimp/include/assimp;SOIL/include;Math;Project1Code;Project2Code;</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);glfw/lib;SOIL/lib/Release;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>SOIL.lib;OpenGL32.lib;GLU32.lib;glew32.lib;assimp/assimpd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>call PostBuild.cmd "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SOIL.lib;OpenGL32.lib;GLU32.lib;glew32.lib;assimp/assimp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>call PostBuild.cmd "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GraphicsSystem\Cone.cpp" />
+    <ClCompile Include="GraphicsSystem\Cube.cpp" />
+    <ClCompile Include="GraphicsSystem\OpenGLDebugging.cpp" />
+    <ClCompile Include="GraphicsSystem\OpenGLGraphicsSystem.cpp" />
+    <ClCompile Include="GraphicsSystem\OpenGLGraphicsSystemScenes.cpp" />
+    <ClCompile Include="GraphicsSystem\Plane.cpp" />
+    <ClCompile Include="GraphicsSystem\Shader.cpp" />
+    <ClCompile Include="GraphicsSystem\Sphere.cpp" />
+    <ClCompile Include="GraphicsSystem\Texture2D.cpp" />
+    <ClCompile Include="InputSystem\InputSystem.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Project1Code\AssimpConvertion.cpp" />
+    <ClCompile Include="Project1Code\Quaternion.cpp" />
+    <ClCompile Include="Project1Code\SkinnedMesh.cpp" />
+    <ClCompile Include="Project1Code\SkinnedMeshStructures.cpp" />
+    <ClCompile Include="Project1Code\VQS.cpp" />
+    <ClCompile Include="Project2Code\ArcLength.cpp" />
+    <ClCompile Include="Project2Code\PathSimulation.cpp" />
+    <ClCompile Include="Project2Code\Interpolate.cpp" />
+    <ClCompile Include="Project2Code\Picking.cpp" />
+    <ClCompile Include="Project2Code\SpeedControl.cpp" />
+    <ClCompile Include="Utility\Debug.cpp" />
+    <ClCompile Include="Utility\Directory.cpp" />
+    <ClCompile Include="WindowSystem\WindowSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataType.h" />
+    <ClInclude Include="GraphicsSystem\Cone.h" />
+    <ClInclude Include="GraphicsSystem\Cube.h" />
+    <ClInclude Include="GraphicsSystem\GraphicSystem.h" />
+    <ClInclude Include="GraphicsSystem\OpenGLDebugging.h" />
+    <ClInclude Include="GraphicsSystem\OpenGLGraphicsSystem.h" />
+    <ClInclude Include="GraphicsSystem\Plane.h" />
+    <ClInclude Include="GraphicsSystem\Shader.h" />
+    <ClInclude Include="GraphicsSystem\Sphere.h" />
+    <ClInclude Include="GraphicsSystem\Texture.h" />
+    <ClInclude Include="GraphicsSystem\Texture2D.h" />
+    <ClInclude Include="InputSystem\InputSystem.h" />
+    <ClInclude Include="Project1Code\AssimpConvetion.h" />
+    <ClInclude Include="Project1Code\Interpolation.h" />
+    <ClInclude Include="Project1Code\Keyframe.h" />
+    <ClInclude Include="Project1Code\Quaternion.h" />
+    <ClInclude Include="Project1Code\SkinnedMesh.h" />
+    <ClInclude Include="Project1Code\SkinnedMeshStructures.h" />
+    <ClInclude Include="Project1Code\VQS.h" />
+    <ClInclude Include="Project2Code\ArcLength.h" />
+    <ClInclude Include="Project2Code\PathSimulation.h" />
+    <ClInclude Include="Project2Code\Interpolate.h" />
+    <ClInclude Include="Project2Code\Picking.h" />
+    <ClInclude Include="Project2Code\PointParameters.h" />
+    <ClInclude Include="Project2Code\SpeedControl.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="System.h" />
+    <ClInclude Include="SystemTypes.h" />
+    <ClInclude Include="Utility\Callable.h" />
+    <ClInclude Include="Utility\Debug.h" />
+    <ClInclude Include="Utility\Delegate.h" />
+    <ClInclude Include="Utility\Directory.h" />
+    <ClInclude Include="Utility\Exception.h" />
+    <ClInclude Include="Utility\Hash.h" />
+    <ClInclude Include="Utility\Clock.h" />
+    <ClInclude Include="Utility\PointerFunc.h" />
+    <ClInclude Include="Utility\GESignal.h" />
+    <ClInclude Include="WindowSystem\WindowSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GE.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="GE.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
